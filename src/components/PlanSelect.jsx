@@ -2,6 +2,20 @@ import iconArcade from '../assets/images/icon-arcade.svg'
 import iconAdvanced from '../assets/images/icon-advanced.svg'
 import iconPro from '../assets/images/icon-pro.svg'
 const PlanSelect=()=>{
+    const cb = document.querySelector('#cb');
+
+function showHide() {
+    if (document.querySelector('#cb').checked) {
+        alert('Agbadooooo')
+        document.querySelector('#cb').checked=false
+    } else{
+        alert('is is for garri?')
+        document.querySelector('#cb').checked=true
+    }
+}
+
+
+// cb.addEventListener('click', showHide)
     return (
         <section className="section section__info">
             <h1>Select Plan</h1>
@@ -37,7 +51,7 @@ const PlanSelect=()=>{
             <section class="toggle">
                 <p>Monthly</p>
                 {/* Rounded switch */}
-                <label for="cb" class="switch">
+                <label for="cb" class="switch" onClick={()=>{showHide()}}>
                     <input type="checkbox" id="cb" />
                     <span class="slider round"></span>
                 </label>
