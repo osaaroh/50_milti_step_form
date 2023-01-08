@@ -6,14 +6,14 @@ import StepNavigate from './components/StepNavigate';
 import PlanSelect from './components/PlanSelect';
 import Addon from './components/Addon';
 import Summary from './components/Summary';
-// import Thanks from './components/Thanks';
+import Thanks from './components/Thanks';
 import { useGlobalContext } from './context';
 
 
 
 function App() {
   const {currentStep, prevStep, nextStep} = useGlobalContext()
-  const componentList = [<Info/>, <PlanSelect/>, <Addon />, <Summary />]
+  const componentList = [<Info/>, <PlanSelect/>, <Addon />, <Summary />, <Thanks />]
     return(
       <main>
         <StepSideBar />
