@@ -5,17 +5,17 @@ import { useContext, useEffect, useState } from "react";
 const AppContext = React.createContext();
 
 const AppProvider =({children})=>{
-    const [currentStep, setCurrentStep] = useState(1);
+    const [currentStep, setCurrentStep] = useState(0);
 
     const prevStep=(stepNum)=>{
         if(stepNum>0){
             setCurrentStep(stepNum-1)
         }else{
-            setCurrentStep(3)
+            setCurrentStep(4)
         }
     }
     const nextStep=(stepNum)=>{
-        if(stepNum<3){
+        if(stepNum<4){
             setCurrentStep(stepNum+1)
         }else{
             setCurrentStep(0)

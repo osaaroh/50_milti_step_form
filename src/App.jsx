@@ -3,14 +3,22 @@ import './App.css';
 import StepSideBar from './components/StepSideBar';
 import Info from './components/Info';
 import StepNavigate from './components/StepNavigate';
+import PlanSelect from './components/PlanSelect';
+import Addon from './components/Addon';
+import Summary from './components/Summary';
+// import Thanks from './components/Thanks';
+import { useGlobalContext } from './context';
+
 
 
 function App() {
+  const {currentStep, prevStep, nextStep} = useGlobalContext()
+  const componentList = [<Info/>, <PlanSelect/>, <Addon />, <Summary />]
     return(
       <main>
         <StepSideBar />
         <div className="content__wrapper">
-          <Info />
+          {componentList[currentStep]}
           <StepNavigate/>
         </div>
         

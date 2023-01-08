@@ -48,6 +48,10 @@ Variables
   color: var(--Cool-gray);
 }
 
+.hide{
+  visibility: hidden;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -90,6 +94,8 @@ main{
     border-radius: 0;
   }
 }
+
+/* //===============SIDEBAR===================== */
 .sidebar{
   grid-row: span 2;
   background:  var(--Purplish-blue);
@@ -148,14 +154,38 @@ main{
   padding: 2rem 3rem;
 }
 
+.content__wrapper{
+  min-height: 476px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 @media only screen and (max-width: 720px) {
   .content__wrapper{
     margin: 0 1rem;
     border-radius: 0.5rem;
     transform: translateY(-5rem);
     background: var(--White);
+    min-height: unset;
   }
 }
+
+.section{
+  min-width: 500px;
+}
+
+@media only screen and (max-width: 720px) {
+  .section{
+    min-width: unset;
+  }
+}
+
+.section__addon .form-group{
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
 .form-group, .input-group{
   display: flex;
   flex-direction: column;
@@ -179,4 +209,168 @@ main{
   justify-content: space-between;
   padding-top: 0;
   padding-bottom: 0;
+  justify-self: flex-end;
+}
+
+.plan-cards{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+}
+
+@media only screen and (max-width: 720px) {
+  .plan-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+  }
+}
+
+.plan-card{
+  padding: 1rem;
+  border: 1px solid var(--Light-gray);
+  border-radius: 0.5rem;
+}
+@media only screen and (max-width: 720px) {
+  .plan-card{
+    display: flex;
+    gap: 2rem;
+  }
+}
+.plan-card img{
+  margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 720px) {
+  .plan-card img{
+    margin-bottom: 0;
+  }
+}
+
+
+.plan-card__title{
+  font-size: 0.95rem;
+}
+
+
+.toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle p {
+  display: inline;
+  margin: 1rem;
+  color: hsl(234, 14%, 74%);
+}
+
+
+/*=======================Custom Toggle====================*/
+
+
+/* The switch - the box around the slider */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  cursor: pointer;
+}
+
+
+/* Hide default HTML checkbox */
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+/* The slider */
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: hsl(237, 63%, 64%);
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px hsl(237, 63%, 64%);
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+/* ==============Addon Styles============== */
+.addon-group {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid var(--Light-gray);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.addon-group h2 {
+  font-size: 1rem;
+}
+
+.addon-group:has(input:checked){
+  border: 1px solid var(--Purplish-blue);
+}
+.checkbox-group{
+  display: flex;
+  gap: 1rem;
+}
+/* ==============sUMMARY Styles============== */
+.summary-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section__thanks{
+  text-align: center;
 }

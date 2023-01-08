@@ -1,8 +1,12 @@
+import { useGlobalContext } from '../context';
 const StepNavigate = ()=>{
+    const {currentStep, prevStep, nextStep} = useGlobalContext()
+
     return(
         <div className="steps">
-            <button className="btn btn__prev">Go back</button>
-            <button className="btn btn__next">Next Step</button>
+            {/* <h2>Testing...5</h2> */}
+            <button className={`btn btn__prev ${currentStep==0?"hide":""}`} onClick={()=>prevStep(currentStep)}>Go back</button>
+            <button className="btn btn__next"  onClick={()=>nextStep(currentStep)}>Next Step</button>
         </div>
     )
 }
