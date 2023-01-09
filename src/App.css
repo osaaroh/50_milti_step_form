@@ -222,6 +222,7 @@ main{
   gap: 0.5rem;
   margin-top: 1rem;
   margin-bottom: 4rem;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 720px) {
@@ -238,6 +239,9 @@ main{
   padding: 1rem;
   border: 1px solid var(--Light-gray);
   border-radius: 0.5rem;
+}
+.plan-card:hover{
+  border: 1px solid var(--Marine-blue);
 }
 @media only screen and (max-width: 720px) {
   .plan-card{
@@ -258,6 +262,10 @@ main{
 
 .plan-card__title{
   font-size: 0.95rem;
+}
+
+.plan-card--active{
+  border: 1px solid var(--Marine-blue);
 }
 
 
@@ -373,6 +381,10 @@ input:checked+.slider:before {
 .summary-group {
   display: flex;
   justify-content: space-between;
+}
+
+.summary-group h2{
+  font-size: 1.2rem;
 }
 
 .section__thanks{

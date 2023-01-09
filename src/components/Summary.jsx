@@ -1,4 +1,18 @@
+import { useGlobalContext } from "../context"
+
 const Summary=()=>{
+    const {data, setCurrentStep,  subscriptionPeriod, summary} = useGlobalContext()
+
+    let totalCost = 0
+    let summaryObjectsKeys = Object.keys(summary)
+    // let summaryObjectsValues = Object.values(summary)
+    // summaryObjectsKeys.forEach((summaryObject) => {console.log(summary[summaryObject])})
+    // summaryObjectsKeys =  ['plan', 'Online service', 'Larger storage']
+    summaryObjectsKeys.filter((summaryObject)=>summaryObject!=='plan').forEach((key) => {
+        totalCost += summary[key];
+    });
+    
+
     return(
         <section className="section section__summary">
             <h1>Finishing up</h1>
@@ -7,23 +21,28 @@ const Summary=()=>{
             <div className="form-group">
                 <div className="summary-group">
                     <div>
-                        <h2>Arcade (Monthly)</h2>
-                        <a href="#change">Change</a>
+                        <h2>{summary.plan} ({subscriptionPeriod})</h2>
+                        <a href="#change" onClick={(e)=>{
+                            e.preventDefault();
+                            setCurrentStep(1)}
+                            }>Change</a>
                     </div>
-                    <div className="cost">$9<span>9/mo</span></div>
+                    <div className="cost">$<span>{data[subscriptionPeriod][summary.plan]}</span></div>
                 </div>
                 <hr className="plan__divider" />
+                {
+                    summaryObjectsKeys.filter((summaryObject)=>summaryObject!=='plan'&&summaryObject!=='planCost').map((summaryObject, i) => {
+                    return <div className="summary-group" key={i}>
+                        <p>{summaryObject }</p>
+                        <div className="cost">+$<span>{summary[summaryObject]}</span></div>
+                    </div>
+                    })
+                }
+                
+                
                 <div className="summary-group">
-                    <p>Online service</p>
-                    <div className="cost">+$<span>1/mo</span></div>
-                </div>
-                <div className="summary-group">
-                    <p>Larger storage</p>
-                    <div className="cost">+$<span>2/mo</span></div>
-                </div>
-                <div className="summary-group">
-                    <p>Total (per month)</p>
-                    <div className="cost">+$<span>12/mo</span></div>
+                    <p>Total ({subscriptionPeriod})</p>
+                    <div className="cost">+$<span>{totalCost}/{data[subscriptionPeriod].unit}</span></div>
                 </div>
 
                 <div>
