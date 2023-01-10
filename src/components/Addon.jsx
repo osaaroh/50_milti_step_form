@@ -8,14 +8,22 @@ const Addon=()=>{
     let storage_checkbox ;
     let profile_checkbox ;
 
-
-    useEffect(()=>{
+    const initializeCheckboxes=()=>{
         online_checkbox = document.querySelector('#online');
         storage_checkbox = document.querySelector('#storage');
         profile_checkbox = document.querySelector('#profile');
+    }
+
+    const checkboxStateFromContext=()=>{
         summary.hasOwnProperty("Online service")?online_checkbox.checked=true:online_checkbox.checked=false;
         summary.hasOwnProperty("Larger storage")?storage_checkbox.checked=true:storage_checkbox.checked=false;
         summary.hasOwnProperty("Customizable profile")?profile_checkbox.checked=true:profile_checkbox.checked=false;
+    }
+
+
+    useEffect(()=>{
+        initializeCheckboxes();
+        checkboxStateFromContext();
     })
 
     return(
