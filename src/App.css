@@ -227,6 +227,22 @@ main{
   margin-bottom: 4rem;
 }
 
+.form-group__summary{
+  background-color: var(--Magnolia);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-group__total{
+  padding: 0 1.5rem;
+}
+
+.plan__divider{
+  border: none;
+  border-top: 1px solid var(--Light-gray);
+}
+
 .input-group input{
   height: 2.5rem;
   padding: 0.5rem;
@@ -436,4 +452,5 @@ input:checked+.slider:before {
 .cost__total{
   font-weight: 700;
   color: var(--Purplish-blue);
+  font-size: 1.15rem;
 }
