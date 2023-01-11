@@ -18,7 +18,7 @@ const Summary=()=>{
             <h1>Finishing up</h1>
             <p className="light-gray-text">Double-check everything looks OK before confirming</p>
 
-            <div className="form-group">
+            <div className="form-group form-group__summary">
                 <div className="summary-group">
                     <div>
                         <h2>{summary.plan} ({subscriptionPeriod})</h2>
@@ -33,13 +33,13 @@ const Summary=()=>{
                 {
                     summaryObjectsKeys.filter((summaryObject)=>summaryObject!=='plan'&&summaryObject!=='planCost').map((summaryObject, i) => {
                     return <div className="summary-group" key={i}>
-                        <p>{summaryObject }</p>
+                        <p className="light-gray-text">{summaryObject }</p>
                         <div className="cost">+$<span>{summary[summaryObject]}</span></div>
                     </div>
                     })
                 } 
                 <div className="summary-group">
-                    <p>Total ({subscriptionPeriod})</p>
+                    <p className="light-gray-text">Total ({subscriptionPeriod})</p>
                     <div className="cost__total">$<span>{totalCost}/{data[subscriptionPeriod].unit}</span></div>
                 </div>
                 
