@@ -37,20 +37,13 @@ const Summary=()=>{
                         <div className="cost">+$<span>{summary[summaryObject]}</span></div>
                     </div>
                     })
-                }
-                
-                
+                } 
                 <div className="summary-group">
                     <p>Total ({subscriptionPeriod})</p>
                     <div className="cost__total">$<span>{totalCost}/{data[subscriptionPeriod].unit}</span></div>
                 </div>
-
-                <div>
-                    
-                </div>
                 
             </div>
-            
         </section>
     )
 
