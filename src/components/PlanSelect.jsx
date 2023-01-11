@@ -10,7 +10,7 @@ const PlanSelect=()=>{
         return Object.keys(obj).some((key)=>obj[key]===value);
     }
 
-    function showHide() {
+    function changeSubscriptionType() {
         if (document.querySelector('#cb').checked) {
             setSubscriptionPeriod('monthly')
             document.querySelector('#cb').checked=false
@@ -35,6 +35,7 @@ useEffect(()=>{
         <section className="section section__info">
             <h1>Select Plan</h1>
             <p className="light-gray-text">You have the option of monthly or yearly billing</p>
+            <p className='error_input error_input__plan'></p>
 
             <div className="plan-cards">
                 <div className={`plan-card plan-card__arcade ${hasValue(summary,"arcade")?"plan-card--active":""}`} onClick={(e)=>{
@@ -74,7 +75,7 @@ useEffect(()=>{
                 <p>Monthly</p>
                 {/* Rounded switch */}
                 <label htmlFor='cb' className="switch" onClick={()=>{
-                    showHide()
+                    changeSubscriptionType()
                     setSummary({})
                     }}>
                     <input type="checkbox" id="cb" />

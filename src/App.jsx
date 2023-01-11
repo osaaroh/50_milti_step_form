@@ -1,4 +1,3 @@
-// import React, { useState, useEffect } from 'react'
 import './App.css';
 import StepSideBar from './components/StepSideBar';
 import Info from './components/Info';
@@ -12,14 +11,15 @@ import { useGlobalContext } from './context';
 
 
 function App() {
-  const {currentStep, prevStep, nextStep} = useGlobalContext()
+  const {currentStep} = useGlobalContext()
   const componentList = [<Info/>, <PlanSelect/>, <Addon />, <Summary />, <Thanks />]
     return(
       <main>
         <StepSideBar />
         <div className="content__wrapper">
           {componentList[currentStep]}
-          <StepNavigate/>
+          {currentStep!==4?<StepNavigate/>:""}
+          
         </div>
         
       </main>

@@ -42,6 +42,10 @@ Variables
   background: var(--Marine-blue);
   color: var(--White);
 }
+
+.btn__confirm{
+  background: var(--Purplish-blue);
+}
 .btn{
   padding: 0.8rem 1.25rem;
 }
@@ -130,6 +134,12 @@ main{
   display: flex;
   gap: 1rem;
 }
+
+.step__title{
+  font-size: 0.75rem;
+  color: var(--Light-gray);
+}
+
 .step__num-wrapper span{
     width: 2.5rem;
     border-radius: 50%;
@@ -139,6 +149,7 @@ main{
     background-color: transparent;
     outline: 1px solid;
     outline-color: var(--White);
+    font-weight: 700;
 }
 .step__num-wrapper--active span{
   background-color: var(--Pastel-blue);
@@ -185,6 +196,14 @@ main{
 .section__addon .form-group{
   gap: 0.8rem;
   margin-bottom: 1.5rem;
+}
+
+.section__thanks{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-group, .input-group{
@@ -389,4 +408,24 @@ input:checked+.slider:before {
 
 .section__thanks{
   text-align: center;
+}
+
+
+/* ==========Error inputs=============*/
+.error_input{
+  color: var(--Strawberry-red);
+  font-size: 0.85rem;
+}
+
+.error_border{
+  border: 1px solid var(--Strawberry-red) !important;
+}
+
+.cost{
+  font-weight: 700;
+}
+
+.cost__total{
+  font-weight: 700;
+  color: var(--Purplish-blue);
 }

@@ -1,6 +1,6 @@
 import { useGlobalContext } from '../context';
 const StepSideBar=()=>{
-    const {currentStep, prevStep, nextStep} = useGlobalContext()
+    const {currentStep} = useGlobalContext()
     return(
         <div className="sidebar">
             <div className="sidebar__step sidebar__step--1">
