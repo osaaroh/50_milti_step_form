@@ -8,7 +8,11 @@ const AppContext = React.createContext();
 const AppProvider =({children})=>{
     const [currentStep, setCurrentStep] = useState(0);
     const [subscriptionPeriod, setSubscriptionPeriod] = useState('monthly');
-    const [userInfo, setUserInfo] = useState({});
+    const [userInfo, setUserInfo] = useState({
+        "name": "",
+        "email": "",
+        "phone": ""
+    });
     const [summary, setSummary] = useState({});
 
     useEffect(()=>{

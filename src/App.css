@@ -53,6 +53,11 @@ Variables
 .light-gray-text{
   color: var(--Cool-gray);
 }
+.marine-blue-text{
+  color: var(--Marine-blue) !important;
+  font-weight: 700;
+  transition: all .3s;
+}
 
 .hide{
   visibility: hidden;
@@ -212,6 +217,8 @@ main{
 }
 .input-group label{
   font-weight: 500;
+  display: flex;
+  justify-content: space-between;
 }
 
 .form-group{
@@ -256,11 +263,12 @@ main{
 
 .plan-card{
   padding: 1rem;
-  border: 1px solid var(--Light-gray);
+  border: 2px solid var(--Light-gray);
   border-radius: 0.5rem;
+  transition: all 0.3s;
 }
 .plan-card:hover{
-  border: 1px solid var(--Marine-blue);
+  border: 2px solid var(--Purplish-blue);
 }
 @media only screen and (max-width: 720px) {
   .plan-card{
@@ -284,7 +292,7 @@ main{
 }
 
 .plan-card--active{
-  border: 1px solid var(--Marine-blue);
+  border: 2px solid var(--Purplish-blue);
 }
 
 
@@ -334,7 +342,7 @@ main{
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: var(--Marine-blue);
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -352,11 +360,11 @@ main{
 }
 
 input:checked+.slider {
-  background-color: hsl(237, 63%, 64%);
+  background-color: var(--Marine-blue);
 }
 
 input:focus+.slider {
-  box-shadow: 0 0 1px hsl(237, 63%, 64%);
+  box-shadow: 0 0 1px var(--Marine-blue);
 }
 
 input:checked+.slider:before {

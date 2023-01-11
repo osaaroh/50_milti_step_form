@@ -27,6 +27,7 @@ const PlanSelect=()=>{
             document.querySelector('#cb').checked=false
         }
     }
+    
 
 useEffect(()=>{
     addActiveToggle();
@@ -72,7 +73,7 @@ useEffect(()=>{
             </div>
 
             <section className="toggle">
-                <p>Monthly</p>
+                <p className={`${subscriptionPeriod==="monthly"?"marine-blue-text":""}`}>Monthly</p>
                 {/* Rounded switch */}
                 <label htmlFor='cb' className="switch" onClick={()=>{
                     changeSubscriptionType()
@@ -81,7 +82,7 @@ useEffect(()=>{
                     <input type="checkbox" id="cb" />
                     <span className="slider round"></span>
                 </label>
-                <p>Yearly</p>
+                <p className={`${subscriptionPeriod==="yearly"?"marine-blue-text":""}`}>Yearly</p>
             </section>
 
             

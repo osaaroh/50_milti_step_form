@@ -6,29 +6,20 @@ let nameInput = ""
 let emailInput = ""
 let phoneInput = ""
 
-window.addEventListener('load', function () {
-    nameInput = document.querySelector("#name");
-    emailInput = document.querySelector("#email");
-    phoneInput = document.querySelector("#phone");
-    errorNameMsg = document.querySelector(".error_input__name");
-    errorEmailMsg = document.querySelector(".error_input__email");
-    errorPhoneMsg = document.querySelector(".error_input__phone");
-    errorPlanMsg = document.querySelector(".error_input__plan");
-    
-})
-
 const step1ValidationTimeout = () => setInterval(() => {
     errorNameMsg.innerHTML = "";
     errorEmailMsg.innerHTML = "";
     errorPhoneMsg.innerHTML = "";
-}, 8000);
+}, 5500);
 const step2ValidationTimeout = () => setInterval(() => {
     errorPlanMsg.innerHTML =""
-}, 8000);
+}, 5500);
 
 
-const checkNameInput=()=>{
-    if (nameInput.value.length === 0 || (/^\w+( \w+)*$/.test(nameInput.value))===false) {
+const checkNameInput=(name)=>{
+    nameInput = document.querySelector("#name");
+    errorNameMsg = document.querySelector(".error_input__name");
+    if (name.length === 0 || (/^\w+( \w+)*$/.test(name))===false) {
         errorNameMsg.innerHTML = "Name can contain only letters";
         nameInput.classList.add('error_border')
         return  false;
@@ -38,9 +29,11 @@ const checkNameInput=()=>{
         return true
     }
 }
-const checkEmailInput=()=>{
+const checkEmailInput=(email)=>{
+    emailInput = document.querySelector("#email");
+    errorEmailMsg = document.querySelector(".error_input__email");
     const emailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (emailInput.value.length === 0 || (emailValidation.test(emailInput.value))===false) {
+    if (email.length === 0 || (emailValidation.test(email))===false) {
         errorEmailMsg.innerHTML = "Enter valid Email";
         emailInput.classList.add('error_border')
         return  false;
@@ -50,8 +43,10 @@ const checkEmailInput=()=>{
         return true
     }
 }
-const checkPhoneInput=()=>{
-    if (phoneInput.value.trim().length === 0) {
+const checkPhoneInput=(phone)=>{
+    phoneInput = document.querySelector("#phone");
+    errorPhoneMsg = document.querySelector(".error_input__phone");
+    if (phone.trim().length === 0) {
         errorPhoneMsg.innerHTML = "This field is required";
         phoneInput.classList.add('error_border')
         return false;
@@ -62,12 +57,15 @@ const checkPhoneInput=()=>{
     }
 }
 
-let step1Validation =()=>{
-    checkNameInput();
-    checkEmailInput();
-    checkPhoneInput();
+let step1Validation =(obj)=>{
+    const nameBool = obj.hasOwnProperty("name")? checkNameInput(obj.name):false;
+    const emailBool = obj.hasOwnProperty("email")?checkEmailInput(obj.email):false;
+    const phoneBool = obj.hasOwnProperty("phone")?checkPhoneInput(obj.phone):false;
     step1ValidationTimeout()
-    return [checkNameInput, checkEmailInput, checkPhoneInput]
+    return [nameBool, emailBool, phoneBool]
+
+    
+    
 }
 let step2Validation =(obj)=>{
     errorPlanMsg = document.querySelector(".error_input__plan");
@@ -83,9 +81,10 @@ let step2Validation =(obj)=>{
 }
 
 export let isValid = (currentStep, formObjects)=>{
+    console.log(formObjects);
     if(currentStep===0){
-        if(step1Validation()[0]()&&step1Validation()[1]()&&step1Validation()[2]()){
-            console.log(formObjects)
+        let step1ValidationValues = step1Validation(formObjects);
+        if(step1ValidationValues[0]&&step1ValidationValues[1]&&step1ValidationValues[2]){
             return true
         }
         else{
@@ -94,7 +93,6 @@ export let isValid = (currentStep, formObjects)=>{
     }
     else if(currentStep===1){
         if(step2Validation(formObjects)){
-            console.log(formObjects)
             return true
         }
         else{

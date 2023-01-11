@@ -8,29 +8,29 @@ const Info=()=>{
 
             <div className="form-group">
                 <div className="input-group">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" name="" id="name" placeholder="e.g Stephen King" value={userInfo.hasOwnProperty("name")?userInfo.name:""} onChange={(e)=>{
+                    <label htmlFor="name">Name <p className="error_input error_input__name"></p></label>
+                    <input type="text" name="" id="name" placeholder="e.g Stephen King" value={userInfo.hasOwnProperty("name")?userInfo.name?userInfo.name:"":""} onChange={(e)=>{
                             e.target.classList.remove('error_border');
                             setUserInfo({...userInfo, "name":e.target.value})
                         }}
                     />
-                    <p className="error_input error_input__name"></p>
+                    {/* <p className="error_input error_input__name"></p> */}
                 </div>
                 <div className="input-group">
-                    <label htmlFor="email">Email</label>
-                    <input type="email" name="" id="email" placeholder="e.g stephen@lorem.com" value={userInfo.hasOwnProperty("email")?userInfo.email:""}  onChange={(e)=>{
+                    <label htmlFor="email">Email <p className="error_input error_input__email"></p></label>
+                    <input type="email" name="" id="email" placeholder="e.g stephen@lorem.com" value={userInfo.hasOwnProperty("email")?userInfo.email?userInfo.email:"":""}  onChange={(e)=>{
                             e.target.classList.remove('error_border');
                             setUserInfo({...userInfo, "email":e.target.value})
                         }}/>
-                    <p className="error_input error_input__email"></p>
+                    {/* <p className="error_input error_input__email"></p> */}
                 </div>
                 <div className="input-group">
-                    <label htmlFor="phone">Phone Number</label>
-                    <input type="text" name="" id="phone" placeholder="e.g +123 456 7890"  value={userInfo.hasOwnProperty("phone")?userInfo.phone:""} onChange={(e)=>{
+                    <label htmlFor="phone">Phone Number <p className="error_input error_input__phone"></p></label>
+                    <input type="text" name="" id="phone" placeholder="e.g +123 456 7890"  value={userInfo.hasOwnProperty("phone")?userInfo.phone?userInfo.phone:"":""} onChange={(e)=>{
                             e.target.classList.remove('error_border');
                             setUserInfo({...userInfo, "phone":e.target.value})
                         }}/>
-                    <p className="error_input error_input__phone"></p>
+                    {/* <p className="error_input error_input__phone"></p> */}
                 </div>
             </div>
             
